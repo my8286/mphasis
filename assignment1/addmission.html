@@ -1,6 +1,7 @@
 <html>
     <title>Admission Form</title>
-    <body bgcolor=#3700B3 text=#FFFFFF>
+    <!-- <body bgcolor=#3700B3 text=#FFFFFF> -->
+    <body style="background-image: url('bg3.jpg');background-repeat: no-repeat; background-size: cover">
         <form>
             <center>
                 <h1>Admission Form</h1><hr>
@@ -25,6 +26,17 @@
                     <tr> 
                         <td>Department</td>
                         <td><input type=text name=t5 size=20 required/></td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>
+                            <input type="text" list="countryList" name="list" autocomplete=on>
+                            <datalist id="countryList">
+                                <option value="India">
+                                <option value="America">
+                                <option value="Japan">
+                            </datalist>
+                        </td>
                     </tr>
 
                     <tr> 
