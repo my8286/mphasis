@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="" method=get autocomplete=on>
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" name="fn"/></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" name="ln" /></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" /></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td><input type="text" list="countryList" name="list" autocomplete=on>
+                        <datalist id="countryList">
+                            <option value="India">
+                            <option value="America">
+                            <option value="Japan">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="submit"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
