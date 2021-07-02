@@ -1,0 +1,6 @@
+input:focus{
+    background-color: yellow;
+}
+tr{
+    line-height: 24px;
+}
