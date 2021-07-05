@@ -2,45 +2,60 @@
 
 <head>
     <script>
-        document.write("Hello World");
+        //document.write("Hello World");
         //alert("Hello");
-
-        var a=prompt("Enter a number to check even or odd:","Enter number");
-        var n=parseInt(a);
-        if(isNaN(n))
-        {
-            alert("Enter a number");
-        }
-        else if(n==0)
-        {
-            alert("The number is zero");
-        }
-        else if(n%2==0)
-        {
-            alert("The number is ever");
-        }
-        else
-        {
-            alert("The number is odd");
-        }
-
-        var cars=["BMW","TATA","Ford","Maruti","Honda"];
-        for(var i=0;i<cars.length;i++)
-        {
-            switch(cars[i])
+        function evenOdd(){
+            var a=prompt("Enter a number to check even or odd:","Enter number");
+            var n=parseInt(a);
+            if(isNaN(n))
             {
-                case cars[i]="TATA":
-                    document.write("<br>Hello TATA");
-                    break;
-                case cars[i]="BMW":
-                    document.write("<br>Hello BMW");
-                    break;
+                alert("Enter a number");
+            }
+            else if(n==0)
+            {
+                alert("The number is zero");
+            }
+            else if(n%2==0)
+            {
+                alert("The number is even");
+            }
+            else
+            {
+                alert("The number is odd");
+            }
+
+        }
+        
+        function printCars(){
+            var cars=["BMW","TATA","Ford","Maruti","Honda"];
+            for(var i=0;i<cars.length;i++)
+            {
+                switch(cars[i])
+                {
+                    case cars[i]="TATA":
+                        document.write("<br>Hello TATA");
+                        break;
+                    case cars[i]="BMW":
+                        document.write("<br>Hello BMW");
+                        break;
+                }
             }
         }
+        function addToNum(){
+            var a=prompt("Enter a number","variable a");
+            var b=prompt("Enter a number","variable b");
+            var c=parseInt(a)+parseInt(b);
+            alert(a+" + "+b+" = "+c);
+        }
+        
+
     </script>
 </head>
 
 <body>
+    <button type="button" onclick="addToNum()">Add two numbers</button><br>
+    <button type="button" onclick="printCars()">Print cars</button><br>
+    <button type="button" onclick="evenOdd()">Check Even or Odd number</button><br>
 </body>
 
 </html>
