@@ -28,15 +28,17 @@
         
         function printCars(){
             var cars=["BMW","TATA","Ford","Maruti","Honda"];
+            var rank=[1,2,3,4,5];
+            var price=[50,40.1,60,80.0,20]
             for(var i=0;i<cars.length;i++)
             {
                 switch(cars[i])
                 {
                     case cars[i]="TATA":
-                        document.write("<br>Hello TATA");
+                        document.write("<br>"+rank[i]+" TATA "+price[i]+"L");
                         break;
                     case cars[i]="BMW":
-                        document.write("<br>Hello BMW");
+                        document.write("<br>"+rank[i]+" BMW "+price[i]+"L");
                         break;
                 }
             }
@@ -47,13 +49,60 @@
             var c=parseInt(a)+parseInt(b);
             alert(a+" + "+b+" = "+c);
         }
+        function init()
+        {
+            window.a=parseInt(document.getElementById("a").value);
+            window.b=parseInt(document.getElementById("b").value);
+        }
+        function addInputNums()
+        {
+            init()
+            var ans=a+b;
+            c.value=ans;
+        }
+        function mulInputNums()
+        {
+            init()
+            c.value=a*b;
+        }
+        function subInputNums()
+        {
+            init()
+            c.value=a-b;
+        }
+        function divInputNums()
+        {
+            init()
+            c.value=a/b;
+        }
         
 
     </script>
 </head>
 
 <body>
-    <button type="button" onclick="addToNum()">Add two numbers</button><br>
+    <table>
+        <tr>
+            <td>a=</td>
+            <td><input type=text id="a" /></td>
+        </tr>
+        <tr>
+            <td>b=</td>
+            <td><input type=text id="b" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" id="submit"  value="add" onclick="addInputNums()"/>
+                 <input type="submit" id="submit" value="mul" onclick="mulInputNums()"/>
+                 <input type="submit" id="submit" value="sub" onclick="subInputNums()"/>
+                 <input type="submit" id="submit" value="div" onclick="divInputNums()"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="text" id="c"  /></td>
+        </tr>
+    </table>
+    <button type="button" onclick="addToNum()">Add two numbers via alert</button><br>
     <button type="button" onclick="printCars()">Print cars</button><br>
     <button type="button" onclick="evenOdd()">Check Even or Odd number</button><br>
 </body>
