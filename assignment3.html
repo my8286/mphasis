@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <style>
+            legend{
+                color:limegreen
+            }
+            input{
+                border: 1px solid limegreen
+            }
+            input[type="submit"]{
+                height:30px;
+                width:100px;
+                background-color: limegreen;
+                margin-top:20px
+            }
+            table{
+                width:50%;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <p>Fields marked (*) are required</p>
+        <fieldset>
+            <legend>Input Text Field Validation</legend>
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="fn" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="ln" /></td>
+                </tr>
+            </table>
+        </fieldset><br><br>
+
+        <fieldset>
+            <legend>Email and URL Validation</legend>
+            <table>
+                <tr>
+                    <td>Email*</td>
+                    <td><input type="email" name="fn" required /></td>
+                </tr>
+                <tr>
+                    <td>Website*</td>
+                    <td><input type="text" name="ln" required /></td>
+                </tr>
+            </table>
+        </fieldset><br><br>
+
+        <fieldset>
+            <legend>Mobile or Phone Validation</legend>
+            <table>
+                <tr>
+                    <td>Mobile*</td>
+                    <td><input type="email" name="fn" required /></td>
+                </tr>
+            </table>
+        </fieldset><br><br>
+
+        <fieldset>
+            <legend>Dropdown Validation</legend>
+            <table>
+                <tr>
+                    <td>Country</td>
+                    <td><select>
+                        <option>Select</option>
+                        <option>India</option>
+                        <option>America</option>
+
+                    </select></td>
+                </tr>
+            </table>
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Number Validation with specific Range</legend>
+            <table>
+                <tr>
+                    <td>Postcode</td>
+                    <td><input type="text" name="pincode" required /></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br><br>
+
+        <fieldset>
+            <legend>Text Area Validation</legend>
+            <table>
+                <tr>
+                    <td>Postcode</td>
+                    <td><input type="text" name="pincode" required /></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br><br>
+
+        <fieldset>
+            <legend>Checkbox and Radio Button Validation</legend>
+            <table>
+                <tr>
+                    <td>Agree to T&C*</td>
+                    <td><input type="checkbox" name="pincode" required /></td>
+                </tr>
+                <tr>
+                    <td>Gender*</td>
+                    <td><input type="radio" name="gender" required /> Male <input type="radio" name="gender" required /> Female</td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br><br>
+
+        <fieldset>
+            <legend>Password Validation</legend>
+            <table>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" required /></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <center>
+            <input type="submit" value="Sign Up" />
+        </center>
+    </body>
+</html>

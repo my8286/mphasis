@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script>
+        document.write("Hello World");
+        //alert("Hello");
+
+        var a=prompt("Enter a number to check even or odd:","Enter number");
+        var n=parseInt(a);
+        if(isNaN(n))
+        {
+            alert("Enter a number");
+        }
+        else if(n==0)
+        {
+            alert("The number is zero");
+        }
+        else if(n%2==0)
+        {
+            alert("The number is ever");
+        }
+        else
+        {
+            alert("The number is odd");
+        }
+
+        var cars=["BMW","TATA","Ford","Maruti","Honda"];
+        for(var i=0;i<cars.length;i++)
+        {
+            switch(cars[i])
+            {
+                case cars[i]="TATA":
+                    document.write("<br>Hello TATA");
+                    break;
+                case cars[i]="BMW":
+                    document.write("<br>Hello BMW");
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
