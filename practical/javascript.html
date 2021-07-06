@@ -185,8 +185,50 @@
 
     <div class="container div-margin">
         <h1>Jquery Example</h1>
-    </div>
+        <p>welcome on jquery tutorial</p>
+        <ol>
+            <li>item1</li>
+        </ol>
+        <button class="btn btn-primary" type="button" id="btn1">change para text</button>
+        <button class="btn btn-primary" type="button" id="btn2">hide para</button>
+        <button class="btn btn-primary" type="button" id="btn3">show para</button>
+        <button class="btn btn-primary" type="button" id="btn4">append text</button>
+        <button class="btn btn-primary" type="button" id="btn5">Toggle</button>
+        <button class="btn btn-primary" type="button" id="btn6">append list</button>
 
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // to change the text of the paragrapha
+            $('#btn1').click(function(){
+                $("p").text("Hello world");
+            });
+            // To hide the pargraph tag
+            $('#btn2').click(function(){
+                $("p").hide();
+            });
+            // To show the paragraph again
+            $("#btn3").click(function(){
+                $("p").show();
+            });
+            // To append text in the paragraph
+            $("#btn4").click(function(){
+                $("p").append("<b> mphasis</b>");
+            });
+            // To hide and show para by single button
+            // $("btn5").click(function(){
+            //     $("p").toggle();
+            // });
+            // To append item in the list
+            $("#btn6").click(function(){
+                $("ol").append("<li>new item</li>");
+            });
+
+
+
+        })
+    </script>
 
 
     <!-- Optional JavaScript -->

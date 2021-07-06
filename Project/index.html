@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Boostrap </title>
     <style>
         body {
@@ -17,13 +18,14 @@
         }
 
         #home {
-            background-image: url('../img/bg6.jpg');
+            background-image: url('../img/bg12.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             height: 500px;
         }
-        #offer1{
-            margin-top:50px;
+
+        #offer1 {
+            margin-top: 50px;
             height: 400px;
 
         }
@@ -42,35 +44,76 @@
             height: 500px;
             margin-top: 20px
         }
-        .menu{
-            margin-top:30px;
-            color:black
+
+        .menu {
+            margin-top: 30px;
+            color: black
         }
-        .card-img-margin{
-            margin-left:200px
+
+        .btn {
+            background-color: red;
+            color: white
         }
-        .btn-radius{
+
+        .card-img-margin {
+            margin-left: 200px
+        }
+
+        .btn-radius {
             border-radius: 100px;
-            width:100px;
-            margin-top:20px
+            width: 100px;
+            margin-top: 20px
         }
-        .text-black{
-            color:black
+
+        .text-black {
+            color: black
         }
-        .box-shadow{
-            margin-top:60px;
-            margin-left:40px;
-            padding:40px;
+
+        .box-shadow {
+            margin-top: 60px;
+            margin-left: 40px;
+            padding: 40px;
             box-shadow: 2px 2px 18px 0 rgba(34, 33, 33, 0.6)
         }
-        .about{
-            height:300px
+
+        .about {
+            height: 300px
+        }
+
+        .navbar {
+            z-index: 1
+        }
+
+        i {
+            font-size: 50px
+        }
+
+        .footer {
+
+            background-color: #263238;
+            margin-top: 50px
+        }
+
+        .footer .col-sm {
+            height: 200px;
+            margin-top: 20px
+        }
+
+        #download {
+            background-image: url('../img/footer.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100px;
+        }
+
+        ul {
+            list-style-type: none
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">
             <img src="../img/logo3.png" width="50" height="40" alt="">
         </a>
@@ -94,6 +137,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="return.html">Return</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Mobile</a></li>
+                        <li><a class="dropdown-item" href="#">Laptop</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Earphone</a></li>
+                        <li><a class="dropdown-item" href="#">Headhone</a></li>
+                    </ul>
+                </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -103,12 +161,14 @@
         </div>
     </nav>
 
+
+
     <div class="container-fluid d-flex justify-content-center align-items-center" id="home">
         <div style="height:400;background-color:;">
             <p class="text-center"><em>Welcome To Our Website</em></p>
             <h1 class="display-4">IT'S NICE TO MEET YOU</h1>
             <div class="text-center">
-                <button type="button" class="btn btn-warning">Sign In</button>
+                <button type="button" class="btn">Sign In</button>
             </div>
 
         </div>
@@ -118,37 +178,61 @@
         <h1 class="display-4 text-center" style="margin-bottom:30px">Today's Deal</h1>
         <div class="card-deck">
             <div class="card">
-                <img class="card-img-top" src="../img/m1.jpg" height=250 alt="Card image cap">
+                <img class="card-img-top" src="../img/m5.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Mi 9</h5>
+                    <h5 class="card-title">Sumsung Galaxy</h5>
                     <p class="card-text">10000/-</p>
                     <p class="card-text"><small class="text-muted">M.R.P <del>15000/-</del></small></p>
                     <div class="text-center ">
-                        <button type="button" class="btn btn-danger btn-lg btn-block">Buy</button>
+                        <button type="button" class="btn  btn-lg btn-block">Buy</button>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="../img/m2.jpg" height=250 alt="Card image cap">
+                <img class="card-img-top" src="../img/m13.jpg" height=200 alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Sumsung F31</h5>
+                    <h5 class="card-title">Vivo V31</h5>
                     <p class="card-text">10000/-</p>
                     <p class="card-text"><small class="text-muted">M.R.P <del>15000/-</del></small></p>
                     <div class="text-center ">
-                        <button type="button" class="btn btn-danger btn-lg btn-block">Buy</button>
+                        <button type="button" class="btn btn-lg btn-block">Buy</button>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="../img/m4.jpg" height=250 alt="Card image cap">
+                <img class="card-img-top" src="../img/m7.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Redmi Pro</h5>
+                    <p class="card-text">10000/-</p>
+                    <p class="card-text"><small class="text-muted">M.R.P <del>15000/-</del></small></p>
+                    <div class="text-center ">
+                        <button type="button" class="btn btn-lg btn-block">Buy</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="../img/m10.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MotoG Power</h5>
+                    <p class="card-text">10000/-</p>
+                    <p class="card-text"><small class="text-muted">M.R.P <del>15000/-</del></small></p>
+                    <div class="text-center ">
+                        <button type="button" class="btn btn-lg btn-block">Buy</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="../img/m11.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">One Plus 5G</h5>
                     <p class="card-text">10000/-</p>
                     <p class="card-text"><small class="text-muted">M.R.P <del>15000/-</del></small></p>
                     <div class="text-center ">
-                        <button type="button" class="btn btn-danger btn-lg btn-block">Buy</button>
+                        <button type="button" class="btn btn-lg btn-block">Buy</button>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -158,40 +242,108 @@
         <div class="card text-red">
             <img class="card-img" src="../img/e2.jpg" alt="Card image" height=400px>
             <div class="card-img-overlay card-img-margin">
-              <h5 class="card-title">Just In</h5>
-              <h1 class="card-text display-4">Take Your</h1>
-              <h1 class="card-text display-4">Sound</h1>
-              <h1 class="card-text display-4">Anywhere</h1>
-              <div class="text-left">
-                <button type="button" class="btn btn-success btn-radius">Shop</button>
+                <h5 class="card-title">Just In</h5>
+                <h1 class="card-text display-4">Take Your</h1>
+                <h1 class="card-text display-4">Sound</h1>
+                <h1 class="card-text display-4">Anywhere</h1>
+                <div class="text-left">
+                    <button type="button" class="btn btn-radius">Shop</button>
+                </div>
             </div>
-            </div>
-          </div>
+        </div>
 
     </div>
     <div class="container-fluid text-black about">
         <div class="container">
             <div class="row">
-              <div class="col-sm box-shadow text-center">
-                <i class="fas fa-truck"></i>
-                <p>WORLDWIDE DELIVERY</p>
-                <p>Far far away, behind the word mountains, far from the countries.</p>
-              </div>
-              <div class="col-sm box-shadow  text-center">
-                <i class="fab fa-amazon-pay"></i>
-                <p>SECURE PAYMENTS</p>
-                <p>Far far away, behind the word mountains, far from the countries.</p>
-              </div>
-              <div class="col-sm box-shadow text-center">
-                <i class="far fa-arrow-alt-circle-down"></i>
-               <p> SIMPLE RETURNS </p>
-                <p>Far far away, behind the word mountains, far from the countries.</p>
-              </div>
+                <div class="col-sm box-shadow text-center">
+                    <i class="fas fa-truck"></i>
+                    <p>WORLDWIDE DELIVERY</p>
+                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                </div>
+                <div class="col-sm box-shadow  text-center">
+                    <i class="fab fa-amazon-pay"></i>
+                    <p>SECURE PAYMENTS</p>
+                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                </div>
+                <div class="col-sm box-shadow text-center">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                    <p> SIMPLE RETURNS </p>
+                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 
-    
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm text-center">
+                    <h6>Store Location</h6>
+                    <p>500 Terry Francois Street
+                        San Francisco, CA 94158
+                        info@mysite.com
+                        123-456-7890</p>
+                </div>
+                <div class="col-sm text-center">
+                    <h6>Policy</h6>
+                    <ul>
+                        <li>Shipping & Returns</li>
+                        <li>Terms & Conditions</li>
+                        <li>Payment Methods </li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+                <div class="col-sm text-center">
+
+                    <h6>Shop</h6>
+                    <ul>
+                        <li> Computers</li>
+                        <li> Tablets</li>
+                        <li> Drones & Cameras</li>
+                        <li> Audio</li>
+                        <li> Mobile</li>
+                        <li> T.V & Home Cinema</li>
+                        <li> Wearable Tech</li>
+                    </ul>
+
+                </div>
+                <div class="col-sm  text-center">
+                    <img src="../img/footer.png" height=160 width=350 />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".btn").mouseover(function () {
+                $(this).css("background-color", "lime");
+            });
+            $(".btn").mouseleave(function () {
+                $(this).css("background-color", "red");
+            });
+
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+                if (scroll > 300) {
+                    $(".navbar").css("background", "#263238");
+                }
+
+                else {
+                    $(".navbar").css("background", "");
+                }
+            });
+            $("i").mouseover(function(){
+                $(this).css({"font-size":"80px","color":"red"});
+            });
+            $("i").mouseleave(function(){
+                $(this).css({"font-size":"50px","color":"black"});
+            })
+        })
+    </script>
+
 
 
 

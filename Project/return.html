@@ -63,41 +63,11 @@
     </style>
     <script>
         function validation() {
-            var name=document.getElementById("name");
-            var email=document.getElementById("email");
-            var pass=document.getElementById("pass");
-            var cpass=document.getElementById("cpass");
-            var tc=document.getElementById("tc");
-
-            if(name.value=="")
+            var select=document.getElementById("select");
+            if(select.value=="")
             {
                 alert("Please enter your name!");
                 name.focus();
-            }
-            else if(email.value=="")
-            {
-                alert("Please enter your email!");
-                email.focus();
-            }
-            else if(pass.value=="")
-            {
-                alert("Please enter your password!");
-                pass.focus();
-            }
-            else if(cpass.value=="")
-            {
-                alert("Please enter your confirm password!");
-                cpass.focus();
-            }
-            else if(pass.value!==cpass.value)
-            {
-                alert("Your password does not match!");
-                cpass.focus();
-            }
-            else if(tc.checked==false)
-            {
-                alert("Please agree T&C ");
-                tc.focus();
             }
             else
             {
@@ -147,37 +117,22 @@
             <div class="col-12 col-md-8 col-lg-8 col-xl-6">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 style="color:black">Registration</h1>
+                        <h1 style="color:black">Return</h1>
                     </div>
                 </div>
                 <form name="f1" action="#" method="post">
                     <div class="row align-items-center">
-                        <div class="col mt-4">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col">
-                            <input type="email" name="email"  id="email" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col">
-                            <input type="password" name="pass" id="pass" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="col">
-                            <input type="password" name="cpass" id="cpass" class="form-control" placeholder="Confirm Password">
-                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Product To Be Returned</label>
+                            <select class="form-control" id="select">
+                               <option>Select</option>
+                              <option>MotoG Power</option>
+                              <option>Boat 255 Bluetooth</option>
+                            </select>
+                          </div>
                     </div>
                     <div class="row justify-content-start mt-4">
                         <div class="col">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" id="tc" class="form-check-input">
-                                    I Read and Accept <a href="https://www.froala.com">Terms and Conditions</a>
-                                </label>
-                            </div>
-
                             <button class="btn btn-primary mt-4" type="button" onclick="validation()">Submit</button>
                         </div>
                     </div>
