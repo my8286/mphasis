@@ -1,110 +1,205 @@
 <html>
 
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Boostrap </title>
+    <style>
+        .div-margin {
+            margin-top: 50px
+        }
+    </style>
     <script>
         //document.write("Hello World");
         //alert("Hello");
-        function evenOdd(){
-            var a=prompt("Enter a number to check even or odd:","Enter number");
-            var n=parseInt(a);
-            if(isNaN(n))
-            {
+        function evenOdd() {
+            var a = prompt("Enter a number to check even or odd:", "Enter number");
+            var n = parseInt(a);
+            if (isNaN(n)) {
                 alert("Enter a number");
             }
-            else if(n==0)
-            {
+            else if (n == 0) {
                 alert("The number is zero");
             }
-            else if(n%2==0)
-            {
+            else if (n % 2 == 0) {
                 alert("The number is even");
             }
-            else
-            {
+            else {
                 alert("The number is odd");
             }
 
         }
-        
-        function printCars(){
-            var cars=["BMW","TATA","Ford","Maruti","Honda"];
-            var rank=[1,2,3,4,5];
-            var price=[50,40.1,60,80.0,20]
-            for(var i=0;i<cars.length;i++)
-            {
-                switch(cars[i])
-                {
-                    case cars[i]="TATA":
-                        document.write("<br>"+rank[i]+" TATA "+price[i]+"L");
+
+        function printCars() {
+            var cars = ["BMW", "TATA", "Ford", "Maruti", "Honda"];
+            var rank = [1, 2, 3, 4, 5];
+            var price = [50, 40.1, 60, 80.0, 20]
+            for (var i = 0; i < cars.length; i++) {
+                switch (cars[i]) {
+                    case cars[i] = "TATA":
+                        document.write("<br>" + rank[i] + " TATA " + price[i] + "L");
                         break;
-                    case cars[i]="BMW":
-                        document.write("<br>"+rank[i]+" BMW "+price[i]+"L");
+                    case cars[i] = "BMW":
+                        document.write("<br>" + rank[i] + " BMW " + price[i] + "L");
                         break;
                 }
             }
         }
-        function addToNum(){
-            var a=prompt("Enter a number","variable a");
-            var b=prompt("Enter a number","variable b");
-            var c=parseInt(a)+parseInt(b);
-            alert(a+" + "+b+" = "+c);
+        function addToNum() {
+            var a = prompt("Enter a number", "variable a");
+            var b = prompt("Enter a number", "variable b");
+            var c = parseInt(a) + parseInt(b);
+            alert(a + " + " + b + " = " + c);
         }
-        function init()
-        {
-            window.a=parseInt(document.getElementById("a").value);
-            window.b=parseInt(document.getElementById("b").value);
+        function init() {
+            window.a = parseInt(document.getElementById("a").value);
+            window.b = parseInt(document.getElementById("b").value);
         }
-        function addInputNums()
-        {
+        function addInputNums() {
             init()
-            var ans=a+b;
-            c.value=ans;
+            var ans = a + b;
+            c.value = ans;
         }
-        function mulInputNums()
-        {
+        function mulInputNums() {
             init()
-            c.value=a*b;
+            c.value = a * b;
         }
-        function subInputNums()
-        {
+        function subInputNums() {
             init()
-            c.value=a-b;
+            c.value = a - b;
         }
-        function divInputNums()
-        {
+        function divInputNums() {
             init()
-            c.value=a/b;
+            c.value = a / b;
+        }
+
+        function opps() {
+
+            var obj = new Object();
+            obj.firstname = "manish";
+            obj.lastname = "yadav";
+            obj.city = "mumbai";
+
+            document.write("Name:"+obj.firstname+" "+obj.lastname+" city:"+obj.city);
+
         }
         
+        function classnobj(){
+            var emp=class{
+                constructor(id,name)
+                {
+                    this.id=id;
+                    this.name=name;
+                }
+                getDetails()
+                {
+                    alert(" id: "+this.id+" name: "+this.name);
+                }
+            }
+            var obj1=new emp(1,"manish");
+            var obj2=new emp(2,"akash");
+            obj1.getDetails();
+            obj2.getDetails();
+        }
 
+        function obj()
+        {
+            var obj={
+                firstname:"manish",
+                lastname:"yadav",
+                city:"mumbai",
+                details:function()
+                {
+                   return this.firstname+" "+this.lastname+" "+this.city;
+                }
+            }
+
+         
+            var val=obj.details();
+            alert(val);
+        }
+        function funOnblur()
+        {
+            var input=document.getElementById("blur");
+            input.value=input.value.toUpperCase();
+        }
+        function funOnKeyup(){
+            var input=document.getElementById("keyup");
+            input.value=input.value.toUpperCase();
+        }
     </script>
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>a=</td>
-            <td><input type=text id="a" /></td>
-        </tr>
-        <tr>
-            <td>b=</td>
-            <td><input type=text id="b" /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" id="submit"  value="add" onclick="addInputNums()"/>
-                 <input type="submit" id="submit" value="mul" onclick="mulInputNums()"/>
-                 <input type="submit" id="submit" value="sub" onclick="subInputNums()"/>
-                 <input type="submit" id="submit" value="div" onclick="divInputNums()"/></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="text" id="c"  /></td>
-        </tr>
-    </table>
-    <button type="button" onclick="addToNum()">Add two numbers via alert</button><br>
-    <button type="button" onclick="printCars()">Print cars</button><br>
-    <button type="button" onclick="evenOdd()">Check Even or Odd number</button><br>
+    <div class="container div-margin">
+        <table>
+            <tr>
+                <td>a=</td>
+                <td><input type=text id="a" /></td>
+            </tr>
+            <tr>
+                <td>b=</td>
+                <td><input type=text id="b" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="btn btn-primary" type="submit" id="submit" value="add" onclick="addInputNums()" />
+                    <input class="btn btn-primary" type="submit" id="submit" value="mul" onclick="mulInputNums()" />
+                    <input class="btn btn-primary" type="submit" id="submit" value="sub" onclick="subInputNums()" />
+                    <input class="btn btn-primary" type="submit" id="submit" value="div" onclick="divInputNums()" />
+                </td>
+            </tr>
+            <tr>
+                <td>Output=</td>
+                <td><input type="text" id="c" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container div-margin">
+        <button class="btn btn-primary" type="button" onclick="addToNum()">Add two numbers via alert</button>
+        <button class="btn btn-primary" type="button" onclick="printCars()">Print cars</button>
+        <button class="btn btn-primary" type="button" onclick="evenOdd()">Check Even or Odd number</button>
+    </div>
+
+    <div class="container div-margin">
+        <h1>Opps in Javascript</h1>
+        <button class="btn btn-primary" type="button" onclick="opps()">print obj</button>
+        <button class="btn btn-primary" type="button" onclick="classnobj()">print obj</button>
+        <button class="btn btn-primary" type="button" onclick="obj()">print obj</button>
+
+    </div>
+
+    <div class="container div-margin">
+        <h1 onmouseover="style.color='red' " onmouseout="style.color='black'">Event handling Examples</h1>
+
+        Enter something  blur event: <input type="text" id="blur" onblur="funOnblur()" />
+        Enter something keyup event: <input type="text" id="keyup" onkeyup="funOnKeyup()" />
+    </div>
+
+    <div class="container div-margin">
+        <h1>Jquery Example</h1>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
