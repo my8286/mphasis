@@ -17,6 +17,7 @@ public class Second {
 			else
 				System.out.println(arr[i]+" is odd no");
 		}
+		sc.close();	
 			
 	}
 
