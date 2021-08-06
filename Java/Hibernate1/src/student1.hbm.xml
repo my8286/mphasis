@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//hibernate/hibernatemappingdtd3.0//en"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="mypojo" table="details">
+<id name="rollno" type="string" column="rollno">
+<generator class="assigned"></generator>
+</id>
+<property name="name" type="string" column="name"></property>
+<property name="address" column="address" type="string"></property>
+</class>
+</hibernate-mapping>
