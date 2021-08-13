@@ -1,0 +1,43 @@
+<!-- <app-login></app-login> -->
+<!-- <app-register></app-register> -->
+<!-- <app-contact></app-contact> -->
+<!-- <app-feedback></app-feedback> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-1">
+    <a class="navbar-brand" href="#">MyApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="\Login">Login </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="\Register">Register </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="\Contact">Contact</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="\Feedback">Feedback</a>
+            </li>
+            
+
+
+        </ul>
+        
+    </div>
+</nav>
+<!-- <ul>
+    <li><a [routerLink]="['\Login']">Login</a></li>
+    <li><a [routerLink]="['\Register']">Regitration</a></li>
+    <li><a [routerLink]="['\Contact']">Contact</a></li>
+    <li><a [routerLink]="['\Feedback']">Feedback</a></li>
+</ul> -->
+<router-outlet></router-outlet>
