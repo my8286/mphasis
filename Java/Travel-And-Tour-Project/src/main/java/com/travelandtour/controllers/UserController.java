@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.travelandtour.repository.*;
+
+import in.nareshit.raghu.model.Student;
+
 import com.travelandtour.model.*;
 
 @RestController
@@ -44,9 +47,50 @@ public class UserController {
 		repo2.save(address);
 		return address;
 	}	
-	@RequestMapping("/data")
-	public String getData()
+	@PutMapping("/modify/{id}")
+	public ResponseEntity<String> updateStudent(@PathVariable Long id,@RequestBody Address address)
 	{
-		return "{'name':'manish'}";
+		ResponseEntity<String> resp =null;
+
+		try {
+			
+			Optional<Address> opt =  repo2.findById(id);
+			if(opt.isPresent()) {
+				
+				Address actual = opt.get();
+				if(address.getStreet()!=null)
+				{
+					actual.setStreet(address.getStreet());
+				}
+				if(address.getCity()!=null)
+				{
+					actual.setCity(address.getCity());
+				}
+				if(address.getState()!=null)
+				{
+					actual.setState(address.getState());
+				}
+				
+				repo2.save(actual);
+				
+				
+			} else {
+				
+				resp = new ResponseEntity<String>(
+						"Student '"+id+"' not found", 
+						//HttpStatus.RESET_CONTENT
+						HttpStatus.BAD_REQUEST
+						);
+			}
+
+		} catch (Exception e) {
+			resp = new ResponseEntity<String>(
+					"Unable to process Update",
+					HttpStatus.INTERNAL_SERVER_ERROR);
+			e.printStackTrace();
+		}
+
+		return resp;
 	}
+
 }
