@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.travelandtour.repository.*;
 
-import in.nareshit.raghu.model.Student;
 
 import com.travelandtour.model.*;
 
@@ -47,6 +46,7 @@ public class UserController {
 		repo2.save(address);
 		return address;
 	}	
+	
 	@PutMapping("/modify/{id}")
 	public ResponseEntity<String> updateStudent(@PathVariable Long id,@RequestBody Address address)
 	{
@@ -74,6 +74,11 @@ public class UserController {
 				repo2.save(actual);
 				
 				
+				resp = new ResponseEntity<String>(
+						"Student '"+id+"' Updated", 
+						//HttpStatus.RESET_CONTENT
+						HttpStatus.OK
+						);
 			} else {
 				
 				resp = new ResponseEntity<String>(
@@ -92,5 +97,36 @@ public class UserController {
 
 		return resp;
 	}
+	@DeleteMapping("/remove/{id}")
+	public ResponseEntity<String> removeStudent(@PathVariable Long id)
+	{
+
+		ResponseEntity<String> resp = null;
+
+		try {
+
+			boolean exist = repo2.existsById(id);
+			if(exist) {
+				repo2.deleteById(id);
+				resp = new ResponseEntity<String>(
+						"Student '"+id+"' deleted",
+						HttpStatus.OK);
+			} else {
+				
+				resp = new ResponseEntity<String>(
+						"Student '"+id+"' not exist",
+						HttpStatus.BAD_REQUEST);
+			}
+		} catch (Exception e) {
+			
+			resp = new ResponseEntity<String>(
+					"Unable to delete", 
+					HttpStatus.INTERNAL_SERVER_ERROR);
+			e.printStackTrace();
+		}
+
+		return resp;
+	}
+
 
 }
