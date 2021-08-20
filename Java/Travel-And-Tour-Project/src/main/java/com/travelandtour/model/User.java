@@ -23,7 +23,9 @@ public class User {
     private Long userId;
     private String firstName;
     private String lastName;
+    @Column(unique=true)
     private String email;
+    @Column(unique=true)
     private String phoneno;
     private String password;
     private String gender;

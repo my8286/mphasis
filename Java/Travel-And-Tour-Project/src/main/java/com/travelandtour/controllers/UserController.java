@@ -17,14 +17,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.travelandtour.repository.*;
-
-
-
 import com.travelandtour.model.*;
-
+import com.travelandtour.message.*;
 @RestController
-@RequestMapping("/rest/user")
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -46,6 +45,23 @@ public class UserController {
 		repo2.save(address);
 		return address;
 	}	
+	@PostMapping("/login")
+	public ResponseEntity<?> saveStudent(@RequestBody Login login)
+	{
+		
+		ResponseEntity<String> resp =null;
+			User user=repo1.findByEmailAndPassword(login.getEmail(), login.getPassword());
+			if(user!=null)
+			{
+				resp=new ResponseEntity<String>("Login successful"+login.getEmail(), HttpStatus.OK);
+			}
+			else {
+				
+				resp=new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
+			}
+        
+		return resp;
+	}
 	
 	@PutMapping("/modify/{id}")
 	public ResponseEntity<String> updateStudent(@PathVariable Long id,@RequestBody Address address)
@@ -164,10 +180,8 @@ public class UserController {
 	@GetMapping("/one/{id}")
 	public Optional<User> getOneStudent(@PathVariable Long id) 
 	{
-		
-		
-			
-			Optional<User> opt =  repo1.findByUserId(id);
+	
+			Optional<User> opt =  repo1.findById(id);
 			//if(opt.isPresent()) 
 				//resp = new ResponseEntity<User>(opt.get(), HttpStatus.OK);
 			

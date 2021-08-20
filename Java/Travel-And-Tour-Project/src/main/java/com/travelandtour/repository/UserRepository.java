@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.travelandtour.model.*;
 
 public interface UserRepository extends JpaRepository<User,Long> {
-	public Optional<User> findByUserId(Long id);
+	User findByEmailAndPassword(String email,String password);
 
 }
