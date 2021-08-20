@@ -20,10 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.travelandtour.repository.*;
 
 
+
 import com.travelandtour.model.*;
 
 @RestController
-
+@RequestMapping("/rest/user")
 public class UserController {
 	
 	@Autowired
@@ -38,7 +39,6 @@ public class UserController {
 		//repo2.save(address);
 		return user;
 	}
-	
 	
 	@PostMapping("/save2")
 	public Address saveStudent(@RequestBody Address address)
@@ -97,14 +97,12 @@ public class UserController {
 
 		return resp;
 	}
+	
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<String> removeStudent(@PathVariable Long id)
 	{
-
 		ResponseEntity<String> resp = null;
-
 		try {
-
 			boolean exist = repo2.existsById(id);
 			if(exist) {
 				repo2.deleteById(id);
@@ -127,6 +125,55 @@ public class UserController {
 
 		return resp;
 	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<?> getAllStudents() {
+		
+		ResponseEntity<?> resp = null ;
+		try {
+
+			List<Address> list = repo2.findAll();
+			if(list!=null && !list.isEmpty()) {
+				
+				list.sort((s1,s2)->s1.getStreet().compareTo(s2.getStreet()));
+				/* JDK 1.8
+				list = list.stream()
+						.sorted((s1,s2)->s1.getName().compareTo(s2.getName()))
+						.collect(Collectors.toList());
+				 */
+				resp = new ResponseEntity<List<Address>>(list, HttpStatus.OK);
+			} else {
+				
+
+				//resp = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				resp = new ResponseEntity<String>(
+						"No Students Found",
+						HttpStatus.OK);
+			}
+		} catch (Exception e) {
+			
+
+			resp =  new ResponseEntity<String>(
+					"Unable to Fetch Students", 
+					HttpStatus.INTERNAL_SERVER_ERROR); //500
+			e.printStackTrace();
+		}
+		
+		return resp;
+	}
+	@GetMapping("/one/{id}")
+	public Optional<User> getOneStudent(@PathVariable Long id) 
+	{
+		
+		
+			
+			Optional<User> opt =  repo1.findByUserId(id);
+			//if(opt.isPresent()) 
+				//resp = new ResponseEntity<User>(opt.get(), HttpStatus.OK);
+			
+		return opt;
+	}
+
 
 
 }

@@ -18,20 +18,18 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "address_id")
     private Long id;
-    
-   
-   @JsonUnwrapped
-   @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "user_id", referencedColumnName = "id")
-   private User user;
-   
+  
    private String street;
    private String city;
    private String state;
    private String zip;
    private String country;
+   @JsonUnwrapped
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+   private User user;
    
 	public String getStreet() {
 		return street;
@@ -88,5 +86,12 @@ public class Address {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", user=" + user + ", street=" + street + ", city=" + city + ", state=" + state
+				+ ", zip=" + zip + ", country=" + country + "]";
+	}
+	
 
 }

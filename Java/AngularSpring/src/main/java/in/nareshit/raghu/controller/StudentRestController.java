@@ -241,8 +241,5 @@ public class StudentRestController {
 		}
 
 		return resp;
-	}
-
-	
-	
+	}	
 }

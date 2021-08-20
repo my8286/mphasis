@@ -3,6 +3,7 @@ package com.travelandtour.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,8 +19,8 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "user_id")
+    private Long userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -30,11 +31,10 @@ public class User {
     //@JsonUnwrapped
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    @OneToOne(mappedBy = "user")
-    private Address address;
-
+   // @OneToOne(mappedBy = "user")
+    //private Address address;
     
-    
+ 
 	public String getGender() {
 		return gender;
 	}
@@ -43,12 +43,12 @@ public class User {
 		this.gender = gender;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getUser_id() {
+		return userId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUser_id(Long user_id) {
+		this.userId = user_id;
 	}
 
 	public String getFirstName() {
@@ -91,12 +91,18 @@ public class User {
 		this.password = password;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	@Override
+	public String toString() {
+		return "User [id=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", phoneno=" + phoneno + ", password=" + password + ", gender=" + gender + ", address=]";
 	}
 
 
