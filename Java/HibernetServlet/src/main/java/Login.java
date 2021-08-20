@@ -1,32 +1,36 @@
-import java.io.*;
-import java.sql.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import org.hibernate.*;
-import org.hibernate.cfg.*;
-import javax.servlet.annotation.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login")
-public class Login extends HttpServlet
-{	public void service(HttpServletRequest req,HttpServletResponse res)
-			throws ServletException,IOException
-	{		try
-		{	res.setContentType("text/html");
-			PrintWriter pw=res.getWriter();
-			String a=req.getParameter("t1");
-			String b=req.getParameter("t2");
-			Configuration cfg=new Configuration();
-			SessionFactory sf=cfg.configure().buildSessionFactory();
-			Session ss=sf.openSession();
-			mypojo pojo=new mypojo();
-			pojo.setUname(a);
-			pojo.setPword(b);
-			Transaction tx=ss.beginTransaction();
-			ss.save(pojo);
-			tx.commit();
-			ss.close();
-			res.sendRedirect("success.html");
+public class Login extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		
+		String name=request.getParameter("name");
+		String password=request.getParameter("password");
+		String email=request.getParameter("email");
+		String country=request.getParameter("country");
+		String password=request.getParameter("password");
+		
+		
+		User e=new User();
+		
+		
+		int status=UserDao.save(e);
+		if(status>0){
+			out.print("<p>Record saved successfully!</p>");
+			request.getRequestDispatcher("index.html").include(request, response);
+		}else{
+			out.println("Sorry! unable to save record");
 		}
-		catch(Exception ae)
-		{		}	}}
+		
+		out.close();
+	}
 
-
+}

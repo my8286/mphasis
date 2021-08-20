@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,12 @@ import { Example1Component } from './example1/example1.component';
 import { ContactComponent } from './contact/contact.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { RouterModule,Routes } from '@angular/router';
+import { IfdemoComponent } from './ifdemo/ifdemo.component';
+import { TwowaybindingComponent } from './twowaybinding/twowaybinding.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { FordemoComponent } from './fordemo/fordemo.component';
+import { SwitchdemoComponent } from './switchdemo/switchdemo.component';
+import { LikesdemoComponent } from './likesdemo/likesdemo.component';
 
 const appRoutes: Routes=[
   {path:'Login', component: LoginComponent},
@@ -24,12 +31,19 @@ const appRoutes: Routes=[
     RegisterComponent,
     Example1Component,
     ContactComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    IfdemoComponent,
+    TwowaybindingComponent,
+    ShoppingcartComponent,
+    FordemoComponent,
+    SwitchdemoComponent,
+    LikesdemoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

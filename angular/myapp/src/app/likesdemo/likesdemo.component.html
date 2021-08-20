@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <h2>Products Catalog</h2>
+    <div class="card-deck">
+       <div class="card" *ngFor="let item of products">
+           <div class="card-header">
+               <h3>{{item.Name}}</h3>
+           </div>
+           <div class="card-body">
+               <img width="200" height="200" [src]="item.Photo" >
+           </div>
+           <div class="card-footer">
+              <div class="btn-group">
+               <button (click)="LikesCounter(item)" class="btn btn-success">[{{item.Likes}}]<i class="bi bi-hand-thumbs-up"></i> Like(s)</button>
+               <button (click)="DislikesCounter(item)" class="btn btn-danger">[{{item.Dislikes}}]<span class="fa fa-thumbs-down">Dislike(s)</span></button>
+              </div>
+           </div>
+       </div>
+   </div>
+   </div>

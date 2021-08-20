@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.mypackage.Bank;
 
 public class BankDao {
 	private JdbcTemplate jdbcTemplate;
@@ -56,7 +55,7 @@ public class BankDao {
 	}
 	public Boolean delete(Bank e)
 	{
-		String query="delete table bank where accno=?";
+		String query="delete from bank where accno=?";
 		return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>()
 		{
 			@Override
