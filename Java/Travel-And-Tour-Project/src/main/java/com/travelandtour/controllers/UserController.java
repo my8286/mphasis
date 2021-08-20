@@ -39,7 +39,7 @@ public class UserController {
 	
 	
 	@PostMapping("/save2")
-	public Address saveStudent(Address address)
+	public Address saveStudent(@RequestBody Address address)
 	{
 		repo2.save(address);
 		return address;

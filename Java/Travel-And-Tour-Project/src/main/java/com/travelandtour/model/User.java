@@ -27,9 +27,10 @@ public class User {
     private String password;
     private String gender;
 
-    @JsonUnwrapped
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    //@JsonUnwrapped
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "user")
     private Address address;
 
     
