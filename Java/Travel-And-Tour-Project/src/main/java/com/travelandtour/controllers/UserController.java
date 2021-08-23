@@ -1,6 +1,7 @@
 package com.travelandtour.controllers;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -21,9 +22,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.travelandtour.repository.*;
 import com.travelandtour.model.*;
-import com.travelandtour.message.*;
+import com.travelandtour.service.*;
+
+
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
 	@Autowired
@@ -31,36 +35,56 @@ public class UserController {
 	@Autowired
 	UserAddressRepository repo2;
 	
-	@PostMapping("/save")
-	public User saveStudent(@RequestBody User user)
-	{
-		repo1.save(user);
-		//repo2.save(address);
-		return user;
-	}
+	@Autowired
+	UserService service;
 	
-	@PostMapping("/save2")
-	public Address saveStudent(@RequestBody Address address)
+	@PostMapping("/save")
+	public User saveUser(@RequestBody User user) throws Exception
 	{
-		repo2.save(address);
-		return address;
-	}	
-	@PostMapping("/login")
-	public ResponseEntity<?> saveStudent(@RequestBody Login login)
-	{
-		
-		ResponseEntity<String> resp =null;
-			User user=repo1.findByEmailAndPassword(login.getEmail(), login.getPassword());
-			if(user!=null)
+		String email=user.getEmail();
+		if(email!=null && !email.equals(""))
+		{
+			User obj=service.fetchUserByEmailId(email);
+			if(obj!=null)
 			{
-				resp=new ResponseEntity<String>("Login successful"+login.getEmail(), HttpStatus.OK);
+				throw new Exception("user with "+email+" is already exist");
 			}
-			else {
-				
-				resp=new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
+		}
+		String phone=user.getPhoneno();
+		if(phone!=null && !phone.equals(""))
+		{
+			User obj=service.fetchUserByPhoneno(phone);
+			if(obj!=null)
+			{
+				throw new Exception("user with "+phone+" is already exist");
 			}
-        
-		return resp;
+		}
+		User obj=null;
+		obj=service.saveUser(user);
+		
+		return obj;
+		
+	}
+
+	
+		
+	
+	@PostMapping("/login")
+	public User saveStudent(@RequestBody User user) throws Exception
+	{
+		String email=user.getEmail();
+		String password=user.getPassword();
+		User obj=null;
+		if(email!=null && password!=null)
+		{
+			obj=service.fetchUserByEmailAndPassword(email, password);
+		}
+		if(obj==null)
+		{
+			throw new Exception("Bad credential");
+		}
+		
+		return user;
 	}
 	
 	@PutMapping("/modify/{id}")

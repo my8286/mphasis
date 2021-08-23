@@ -28,7 +28,7 @@ public class User {
     @Column(unique=true)
     private String phoneno;
     private String password;
-    private String gender;
+//    private String gender;
 
     //@JsonUnwrapped
 //    @OneToOne(cascade = CascadeType.ALL)
@@ -37,13 +37,7 @@ public class User {
     //private Address address;
     
  
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+	
 
 	public Long getUser_id() {
 		return userId;
@@ -91,25 +85,5 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phoneno=" + phoneno + ", password=" + password + ", gender=" + gender + ", address=]";
-	}
-
-
-    // ... getters and setters
-    
-    
-    
+	}  
 }
