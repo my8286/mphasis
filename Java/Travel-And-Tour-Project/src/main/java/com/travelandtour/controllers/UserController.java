@@ -86,6 +86,13 @@ public class UserController {
 		
 		return user;
 	}
+	@PostMapping("/contactus")
+	public Contact saveStudent(@RequestBody Contact contact) throws Exception
+	{
+		Contact obj=service.saveContactUs(contact);
+		
+		return obj;
+	}
 	
 	@PutMapping("/modify/{id}")
 	public ResponseEntity<String> updateStudent(@PathVariable Long id,@RequestBody Address address)
