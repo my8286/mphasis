@@ -41,6 +41,33 @@ public class Booking {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transport_id", referencedColumnName = "transport_id")
 	private Transport transportId;
+	
+	
+	
+	public Passenger getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(Passenger passengerId) {
+		this.passengerId = passengerId;
+	}
+
+	public Payment getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(Payment paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public Transport getTransportId() {
+		return transportId;
+	}
+
+	public void setTransportId(Transport transportId) {
+		this.transportId = transportId;
+	}
+
 	public Long getBookingId() {
 		return bookingId;
 	}

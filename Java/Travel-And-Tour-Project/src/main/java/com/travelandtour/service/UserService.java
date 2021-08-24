@@ -76,21 +76,31 @@ public class UserService {
 //	}
 	public Booking saveBooking(BookingData bd)
 	{
-		Booking booking=new Booking();
-		booking.setJourneyDate(bd.getJourneyDate());
-		booking=booking_repo.save(booking);
+		Booking b1=new Booking();
+		b1.setJourneyDate(bd.getJourneyDate());
+		Booking b2=booking_repo.save(b1);
+		
+		Passenger passenger=new Passenger(bd.getFirstName(),bd.getLastName(),bd.getGender(),bd.getAge());
+		passenger=passenger_repo.save(passenger);
+		
+		Payment payment=new Payment(bd.getPaymentDate(),bd.getPaymentTime());
+		payment=payment_repo.save(payment);
 		
 		User user=user_repo.findByUserId(bd.getUserId());
-		booking.setUser(user);
+		Transport transport=transport_repo.findByTransportId(bd.getTransportId());
 		
-		booking=booking_repo.save(booking);
+		b2.setUser(user);
+		b2.setTransportId(transport);
+		b2.setPassengerId(passenger);
+		b2.setPaymentId(payment);
 		
-		return booking;
+		Booking b3=booking_repo.save(b2);
+		
+		return b3;
 		
 		
 		
-//		Payment payment=new Payment(bd.getPaymentDate(),bd.getPaymentTime());
-//		payment=payment_repo.save(payment);
+		
 	}
 
 	
