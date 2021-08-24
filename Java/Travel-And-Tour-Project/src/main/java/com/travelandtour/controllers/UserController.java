@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.travelandtour.repository.*;
 import com.travelandtour.model.*;
 import com.travelandtour.service.*;
+import com.travelandtour.dataclass.*;
 
 
 @RestController
@@ -64,13 +66,10 @@ public class UserController {
 		
 		return obj;
 		
-	}
-
-	
-		
+	}	
 	
 	@PostMapping("/login")
-	public User saveStudent(@RequestBody User user) throws Exception
+	public User login(@RequestBody User user) throws Exception
 	{
 		String email=user.getEmail();
 		String password=user.getPassword();
@@ -84,18 +83,35 @@ public class UserController {
 			throw new Exception("Bad credential");
 		}
 		
-		return user;
+		return obj;
 	}
+	
 	@PostMapping("/contactus")
-	public Contact saveStudent(@RequestBody Contact contact) throws Exception
+	public Contact saveContactUs(@RequestBody Contact contact) throws Exception
 	{
 		Contact obj=service.saveContactUs(contact);
 		
 		return obj;
 	}
 	
+	@PostMapping("/save_transport")
+	public Transport saveTransport(@RequestBody Transport transport) throws Exception
+	{
+		Transport obj=service.saveTransport(transport);
+		
+		return obj;
+	}
+	
+	@PostMapping("/save_booking")
+	public Booking saveBooking(@RequestBody BookingData booking) throws Exception
+	{
+		Booking obj=service.saveBooking(booking);
+		
+		return obj;
+	}
+	
 	@PutMapping("/modify/{id}")
-	public ResponseEntity<String> updateStudent(@PathVariable Long id,@RequestBody Address address)
+	public ResponseEntity<String> updateUser(@PathVariable Long id,@RequestBody Address address)
 	{
 		ResponseEntity<String> resp =null;
 
@@ -146,7 +162,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/remove/{id}")
-	public ResponseEntity<String> removeStudent(@PathVariable Long id)
+	public ResponseEntity<String> removeUser(@PathVariable Long id)
 	{
 		ResponseEntity<String> resp = null;
 		try {
@@ -174,7 +190,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<?> getAllStudents() {
+	public ResponseEntity<?> getAllUser() {
 		
 		ResponseEntity<?> resp = null ;
 		try {
@@ -208,8 +224,9 @@ public class UserController {
 		
 		return resp;
 	}
+	
 	@GetMapping("/one/{id}")
-	public Optional<User> getOneStudent(@PathVariable Long id) 
+	public Optional<User> getOneUser(@PathVariable Long id) 
 	{
 	
 			Optional<User> opt =  repo1.findById(id);
@@ -218,6 +235,26 @@ public class UserController {
 			
 		return opt;
 	}
+	
+	@GetMapping("/get_transport")
+	public List<Transport> getTransport(@RequestParam(defaultValue = "empty") String source,@RequestParam(defaultValue = "empty") String destination,@RequestParam Integer type) 
+	{
+			//System.out.println("s="+source+" d="+destination+" t"+type);
+			List<Transport> obj=service.fetchTransport(source,destination,type);
+			//System.out.println("list="+obj);
+			return obj;
+	}
+	
+//	@GetMapping("/get_history")
+//	public List<Transport> getHistory(@RequestParam Integer id) 
+//	{
+//			//System.out.println("s="+source+" d="+destination+" t"+type);
+//			List<Transport> obj=service.fetchHistory(id);
+//			//System.out.println("list="+obj);
+//			return obj;
+//	}
+	
+	
 
 
 

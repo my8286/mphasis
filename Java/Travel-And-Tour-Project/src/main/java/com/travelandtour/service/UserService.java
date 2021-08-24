@@ -1,11 +1,13 @@
 package com.travelandtour.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.travelandtour.repository.ContactRepository;
-import com.travelandtour.repository.UserRepository;
+import com.travelandtour.repository.*;
 import com.travelandtour.model.*;
+import com.travelandtour.dataclass.*;
 
 
 @Service
@@ -15,6 +17,18 @@ public class UserService {
 	
 	@Autowired
 	ContactRepository contact_repo;
+	
+	@Autowired
+	TransportRepository transport_repo;
+	
+	@Autowired
+	BookingRepository booking_repo;
+	
+	@Autowired
+	PaymentRepository payment_repo;
+	
+	@Autowired
+	PassengerRepository passenger_repo;
 	
 	public User saveUser(User user)
 	{
@@ -39,5 +53,45 @@ public class UserService {
 	{
 		return contact_repo.save(contact);
 	}
+	public Transport saveTransport(Transport transport)
+	{
+		return transport_repo.save(transport);
+	}
+	public List<Transport> fetchTransport(String source,String destination,Integer type)
+	{	
+		
+		return transport_repo.findBySourceAndDestinationAndType(source,destination,type);
+	}
+	
+//	public Booking saveBooking(BookingData data)
+//	{
+//		Payment payment=new Payment(data.getPaymentDate(),data.getPaymentTime());
+//		payment=payment_repo.save(payment);
+//		
+//		Passenger passenger=new Passenger(data.getFirstName(),data.getLastName(),data.getGender(),data.getAge());
+//		passenger=passenger_repo.save(passenger);
+//		
+//		Booking booking=new Booking(data.getJourneyDate(),data.getUserId(),payment.getPaymentId(),passenger.getPassengerId(),data.getTransportId());
+//		return booking_repo.save(booking);
+//	}
+	public Booking saveBooking(BookingData bd)
+	{
+		Booking booking=new Booking();
+		booking.setJourneyDate(bd.getJourneyDate());
+		booking=booking_repo.save(booking);
+		
+		User user=user_repo.findByUserId(bd.getUserId());
+		booking.setUser(user);
+		
+		booking=booking_repo.save(booking);
+		
+		return booking;
+		
+		
+		
+//		Payment payment=new Payment(bd.getPaymentDate(),bd.getPaymentTime());
+//		payment=payment_repo.save(payment);
+	}
 
+	
 }

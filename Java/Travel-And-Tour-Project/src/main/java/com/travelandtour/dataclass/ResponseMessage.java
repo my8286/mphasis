@@ -1,4 +1,4 @@
-package com.travelandtour.message;
+package com.travelandtour.dataclass;
 
 public class ResponseMessage {
 		private String status;
