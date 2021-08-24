@@ -36,12 +36,26 @@ public class User {
    // @OneToOne(mappedBy = "user")
     //private Address address;
     
- 
+    
 	
 
 	public Long getUser_id() {
 		return userId;
 	}
+
+	public User() {
+		super();
+	}
+
+	public User(Long userId, String firstName, String lastName, String email, String phoneno, String password) {
+	super();
+	this.userId = userId;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.email = email;
+	this.phoneno = phoneno;
+	this.password = password;
+}
 
 	public void setUser_id(Long user_id) {
 		this.userId = user_id;

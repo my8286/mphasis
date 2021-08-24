@@ -9,8 +9,10 @@ import com.travelandtour.model.*;
 import com.travelandtour.dataclass.*;
 
 public interface BookingRepository extends JpaRepository<Booking,Long> {
-	//Booking findByUserId(Long id);
+	@Query("SELECT new com.travelandtour.dataclass.BookingDto (p.firstName, p.lastName) "
+			+ "FROM Booking b JOIN b.passenger p")
+	List<BookingDto> fetchBookingData();
 	
-	
-
+	@Query(value = "SELECT * FROM Bookings b WHERE b.user_id =?1", nativeQuery = true)
+	List<Booking> fetchAllBookings(Integer userid);
 }

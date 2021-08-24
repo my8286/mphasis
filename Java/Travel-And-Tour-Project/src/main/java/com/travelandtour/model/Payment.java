@@ -26,6 +26,13 @@ public class Payment {
 		this.paymentDate = paymentDate;
 		this.paymentTime = paymentTime;
 	}
+	
+	public Payment(Long paymentId, String paymentDate, String paymentTime) {
+		super();
+		this.paymentId = paymentId;
+		this.paymentDate = paymentDate;
+		this.paymentTime = paymentTime;
+	}
 	public Long getPaymentId() {
 		return paymentId;
 	}

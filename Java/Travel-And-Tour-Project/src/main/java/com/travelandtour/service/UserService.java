@@ -63,17 +63,7 @@ public class UserService {
 		return transport_repo.findBySourceAndDestinationAndType(source,destination,type);
 	}
 	
-//	public Booking saveBooking(BookingData data)
-//	{
-//		Payment payment=new Payment(data.getPaymentDate(),data.getPaymentTime());
-//		payment=payment_repo.save(payment);
-//		
-//		Passenger passenger=new Passenger(data.getFirstName(),data.getLastName(),data.getGender(),data.getAge());
-//		passenger=passenger_repo.save(passenger);
-//		
-//		Booking booking=new Booking(data.getJourneyDate(),data.getUserId(),payment.getPaymentId(),passenger.getPassengerId(),data.getTransportId());
-//		return booking_repo.save(booking);
-//	}
+
 	public Booking saveBooking(BookingData bd)
 	{
 		Booking b1=new Booking();
@@ -90,17 +80,22 @@ public class UserService {
 		Transport transport=transport_repo.findByTransportId(bd.getTransportId());
 		
 		b2.setUser(user);
-		b2.setTransportId(transport);
-		b2.setPassengerId(passenger);
-		b2.setPaymentId(payment);
+		b2.setTransport(transport);
+		b2.setPassenger(passenger);
+		b2.setPayment(payment);
 		
 		Booking b3=booking_repo.save(b2);
 		
 		return b3;
 		
+	}
+	
+	public List<Booking> fetchHistory(Integer id)
+	{	
 		
-		
-		
+		//return transport_repo.findByUserId(id);
+		//return booking_repo.fetchBookingData();
+		return booking_repo.fetchAllBookings(id);
 	}
 
 	

@@ -245,14 +245,14 @@ public class UserController {
 			return obj;
 	}
 	
-//	@GetMapping("/get_history")
-//	public List<Transport> getHistory(@RequestParam Integer id) 
-//	{
-//			//System.out.println("s="+source+" d="+destination+" t"+type);
-//			List<Transport> obj=service.fetchHistory(id);
-//			//System.out.println("list="+obj);
-//			return obj;
-//	}
+	@GetMapping("/get_history")
+	public List<Booking> getHistory(@RequestParam Integer id) 
+	{
+			//System.out.println("s="+source+" d="+destination+" t"+type);
+			List<Booking> obj=service.fetchHistory(id);
+			//System.out.println("list="+obj);
+			return obj;
+	}
 	
 	
 

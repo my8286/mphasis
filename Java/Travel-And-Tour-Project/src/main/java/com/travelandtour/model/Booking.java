@@ -32,41 +32,15 @@ public class Booking {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "passenger_id", referencedColumnName = "passenger_id")
-	private Passenger passengerId;
+	private Passenger passenger;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "payment_id", referencedColumnName = "payment_id")
-	private Payment paymentId;
+	private Payment payment;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "transport_id", referencedColumnName = "transport_id")
-	private Transport transportId;
-	
-	
-	
-	public Passenger getPassengerId() {
-		return passengerId;
-	}
-
-	public void setPassengerId(Passenger passengerId) {
-		this.passengerId = passengerId;
-	}
-
-	public Payment getPaymentId() {
-		return paymentId;
-	}
-
-	public void setPaymentId(Payment paymentId) {
-		this.paymentId = paymentId;
-	}
-
-	public Transport getTransportId() {
-		return transportId;
-	}
-
-	public void setTransportId(Transport transportId) {
-		this.transportId = transportId;
-	}
+	private Transport transport;
 
 	public Long getBookingId() {
 		return bookingId;
@@ -91,5 +65,31 @@ public class Booking {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Passenger getPassenger() {
+		return passenger;
+	}
+
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
+	public Transport getTransport() {
+		return transport;
+	}
+
+	public void setTransport(Transport transport) {
+		this.transport = transport;
+	}
+	
+	
 	
 }
